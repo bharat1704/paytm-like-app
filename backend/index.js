@@ -1,25 +1,15 @@
 const express = require("express");
+
+const cors = require("cors");
+const secretKey = require("jsonwebtoken")
+
+
+
 const app = express();
+app.use(cors())
 app.use(express.json())
-const {User} = require("./db")
 
-app.post("/signup", async(req,res)=>{
-    const {username, password} = req.body;
-    console.log(username);
-    await User.create({
-      username,
-      password  
-    })
-    res.json({msg:"your account created"})
 
-})
-
-app.get("/signin", (req,res)=>{
-    res.send({name:"bharat"})
-})
-
-app.put("/update", (req,res)=>{
-    res.send({name:"bharat"})
-})
+app.use("api/v1", mainRouter);// our goat is have api/v1/user, api/v1/transaction api/v1/balance
 
 app.listen(3000);
