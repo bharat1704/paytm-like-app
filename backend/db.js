@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://admin:8949@cluster0.n1nlgpu.mongodb.net/januaryDb")
+mongoose.connect("")
 //we need to define schema here, email, password, name, profileid, location etc.
 const userSchema = new mongoose.Schema({
 username : {
